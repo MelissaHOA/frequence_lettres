@@ -10,7 +10,7 @@
 
 from unidecode import unidecode
 
-# 1 : créer une fonction input_sentence qui demande à l’utilisateur l’entrée d’une phrase et retourne celle-ci
+VOWELS = {'a', 'e', 'i', 'o', 'u', 'y'}
 
 
 def input_sentence():
@@ -18,9 +18,6 @@ def input_sentence():
     user_sentence = input("Veuillez saisir une phrase : ")
     return user_sentence
 
-
-# 2 : créer une fonction normalize_sentence qui prend en paramètre une chaîne de caractères
-# et retourne celle-ci en minuscules et sans accent
 
 def normalize_sentence(user_sentence):
     """ Chaine de caractères qui retourne tout en minuscules et sans accent"""
@@ -46,15 +43,21 @@ def calc_letters_freq_sentence(lowercase_sentence):
     return letters_frequency
 
 
+# 6 : compléter le « programme principal » pour indiquer à l’utilisateur
+# l’ensemble des voyelles qui sont présentes dans la phrase.
+
 def analyze_frequency():
-    """Exécution du programme"""
+    """Exécution du programme : analyse de la fréquence des lettres d’un texte"""
     user_sentence = input_sentence()
     lowercase_sentence = normalize_sentence(user_sentence)
     letters_frequency = calc_letters_freq_sentence(lowercase_sentence)
 
+    present_vowel = VOWELS.intersection(letters_frequency)
+
     print(f"Voici la phrase saisi : {user_sentence}")
     print(f"Voici la phrase en minuscule et sans accents : {lowercase_sentence}")
     print(f"La fréquence des lettres : {letters_frequency} ")
+    print(f"l’ensemble des voyelles saisis présente dans la phrase sont : {present_vowel} ")
 
 
 if __name__ == "__main__":
