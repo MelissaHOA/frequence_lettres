@@ -52,12 +52,17 @@ def analyze_frequency():
     lowercase_sentence = normalize_sentence(user_sentence)
     letters_frequency = calc_letters_freq_sentence(lowercase_sentence)
 
-    present_vowel = VOWELS.intersection(letters_frequency)
+    # present_vowel = VOWELS.intersection(letters_frequency)
 
     print(f"Voici la phrase saisi : {user_sentence}")
     print(f"Voici la phrase en minuscule et sans accents : {lowercase_sentence}")
     print(f"La fréquence des lettres : {letters_frequency} ")
-    print(f"l’ensemble des voyelles saisis présente dans la phrase sont : {present_vowel} ")
+    # print(f"l’ensemble des voyelles saisis présente dans la phrase sont : {present_vowel} ")
+
+    present_vowels = ()
+    for present_vowels in VOWELS:
+        if present_vowels in letters_frequency:
+            print(f"Les voyelles présente dans le texte sont : {present_vowels}")
 
 
 if __name__ == "__main__":
